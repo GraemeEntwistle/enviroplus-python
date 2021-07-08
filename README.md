@@ -1,3 +1,16 @@
+## Fork of enviroplus-python
+
+Just added streamr-feed.py to the examples. Just run
+
+```
+sudo ./install.sh
+python streamr-feed.py
+```
+
+and it should push an update to the hardcoded URL every 3 seconds or so.
+
+
+
 # Enviro+ 
 
 Designed for environmental monitoring, Enviro+ lets you measure air quality (pollutant gases and particulates), temperature, pressure, humidity, light, and noise level. Learn more - https://shop.pimoroni.com/products/enviro-plus
