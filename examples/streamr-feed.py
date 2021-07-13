@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import sys
 import requests
 import ST7735
 import time
@@ -109,6 +110,11 @@ def display_status():
 
 
 def send_to_streamr(values, id):
+    url = "http://enty.duckdns.org:8080"
+    if len(sys.argv) > 1:
+        url = sys.argv[1]
+    print("Exporting to: {}\n".format(url))
+
     pm_values = dict(i for i in values.items() if i[0].startswith("P"))
     temp_values = dict(i for i in values.items() if not i[0].startswith("P"))
 
@@ -116,7 +122,7 @@ def send_to_streamr(values, id):
     temp_values_json = [{"value_type": key, "value": val} for key, val in temp_values.items()]
 
     resp_1 = requests.post(
-        "http://192.168.1.128:8080",
+        url,
         json={
             "software_version": "enviro-plus 0.0.1",
             "sensordatavalues": pm_values_json
@@ -130,7 +136,7 @@ def send_to_streamr(values, id):
     )
 
     resp_2 = requests.post(
-        "http://192.168.1.128:8080",
+        url,
         json={
             "software_version": "enviro-plus 0.0.1",
             "sensordatavalues": temp_values_json
