@@ -110,7 +110,7 @@ def display_status():
 
 
 def send_to_streamr(values, id):
-    url = "http://enty.duckdns.org:8080"
+    url = "http://46.69.220.139:4001"
     if len(sys.argv) > 1:
         url = sys.argv[1]
     print("Exporting to: {}\n".format(url))
