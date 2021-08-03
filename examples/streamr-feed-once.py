@@ -110,7 +110,8 @@ def display_status():
 
 
 def send_to_streamr(values, id):
-    url = "http://localhost:8080"
+#    url = "http://46.69.220.139:4001"
+    url = "http://192.168.1.82:8080"
     if len(sys.argv) > 1:
         url = sys.argv[1]
     print("Exporting to: {}\n".format(url))
@@ -186,6 +187,7 @@ while True:
             resp = send_to_streamr(values, id)
             update_time = time.time()
             print("Response: {}\n".format("ok" if resp else "failed"))
+            sys.exit(0)
         display_status()
     except Exception as e:
         print(e)
