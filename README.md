@@ -4,6 +4,7 @@ Just added streamr-feed.py to the examples. Just run
 
 ```
 sudo ./install.sh
+cd examples
 python streamr-feed.py
 ```
 
